@@ -1,0 +1,11 @@
+<section class="contact-details container">
+    <a [routerLink]="'/contact'">Back</a>
+    <div class="contact-details-details">
+        <div class="card">
+            <img [src]="'https://robohash.org/'  + contact._id" />
+            <p>Name: {{ contact.name }}</p>
+            <p>Phone: {{ contact.phone }}</p>
+            <p>Email: {{ contact.email }}</p>
+        </div>
+    </div>
+</section>

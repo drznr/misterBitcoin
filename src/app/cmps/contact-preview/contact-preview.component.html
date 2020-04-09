@@ -1,0 +1,8 @@
+
+<div class="contact-preview">
+    <img [src]="'https://robohash.org/' + contact._id" />
+    <span>
+        {{ contact.name }}
+        <a [routerLink]="'/contact/' + contact._id">Details</a>
+    </span>
+</div>
