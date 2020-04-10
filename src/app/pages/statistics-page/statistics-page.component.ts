@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BitcoinService } from 'src/app/services/bitcoin.service';
+import { zip, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'statistics-page',
   templateUrl: './statistics-page.component.html',
   styleUrls: ['./statistics-page.component.less']
 })
-export class StatisticsPageComponent implements OnInit {
+export class StatisticsPageComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
   marketPriceData: any = {
     type: 'LineChart',
     columnNames: ['', 'USD'],
@@ -44,17 +46,19 @@ export class StatisticsPageComponent implements OnInit {
   constructor(private bitcoinService: BitcoinService) { }
 
   async ngOnInit() {
-    const [ marketDataRes, confirmedTransactionsRes ] = await Promise.all([
-      this.bitcoinService.getMarketPrice(),
-      this.bitcoinService.getConfirmedTransactions()
-    ]);
-    this.marketPriceData.title = marketDataRes.name;
-    this.marketPriceData.options.hAxis.title = marketDataRes.description;
-    this.marketPriceData.data = marketDataRes.values.map(val=> [new Date(val.x), val.y]);
+    const source$ = zip(this.bitcoinService.getMarketPrice(), this.bitcoinService.getConfirmedTransactions());
     
-    this.confirmedTransactionsData.title = confirmedTransactionsRes.name;
-    this.confirmedTransactionsData.options.hAxis.title = confirmedTransactionsRes.description;
-    this.confirmedTransactionsData.data = confirmedTransactionsRes.values.map(val=> [new Date(val.x), val.y]);
-  }
+    this.subscription = source$.subscribe(([marketDataRes, confirmedTransactionsRes]) => {
+      this.marketPriceData.title = marketDataRes.name;
+      this.marketPriceData.options.hAxis.title = marketDataRes.description;
+      this.marketPriceData.data = marketDataRes.values.map(val=> [new Date(val.x), val.y]);
 
+      this.confirmedTransactionsData.title = confirmedTransactionsRes.name;
+      this.confirmedTransactionsData.options.hAxis.title = confirmedTransactionsRes.description;
+      this.confirmedTransactionsData.data = confirmedTransactionsRes.values.map(val=> [new Date(val.x), val.y]);
+    });
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

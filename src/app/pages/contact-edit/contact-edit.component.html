@@ -1,0 +1,31 @@
+
+
+<section class="contact-edit container">
+    <header>
+        <a [routerLink]="(contact._id) ? '/contact/' + contact._id : '/contact'">
+            <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+        </a>
+        <img *ngIf="contact._id" [src]="'https://robohash.org/' + contact._id" />
+        <button *ngIf="contact._id" (click)="removeContact(contact._id)">Delete</button>
+    </header>
+    <main>
+        <form (submit)="saveContact($event)" #contactForm="ngForm">
+            <label>
+                Name:
+                <input type="text" placeholder="Name" [(ngModel)]="contact.name" name="name" #name="ngModel" required />
+                <p class="message" [hidden]="name.valid || name.pristine">Name is required</p>
+            </label>
+            <label>
+                Phone:
+                <input type="text" placeholder="Phone" [(ngModel)]="contact.phone" name="phone" #phone="ngModel" required />
+                <p class="message" [hidden]="phone.valid || phone.pristine">Phone is required</p>
+            </label>
+            <label>
+                Email:
+                <input type="email" placeholder="Email" [(ngModel)]="contact.email" name="email" #email="ngModel" required email />
+                <p class="message" [hidden]="email.valid || email.pristine">Valid Email is required</p>
+            </label>
+            <button [disabled]="!contactForm.valid">Save</button>
+        </form>
+    </main>
+</section>

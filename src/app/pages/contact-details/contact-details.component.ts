@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/models/contact.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'contact-details',
@@ -10,6 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ContactDetailsComponent implements OnInit {
   contact: Contact;
+  faEdit = faEdit;
 
   constructor(private contactService: ContactService, private route: ActivatedRoute) { }
 

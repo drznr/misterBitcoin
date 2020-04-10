@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json"
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class BitcoinService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  async getRate(coins, currency = 'USD') {
-    const res = await axios.get(`https://blockchain.info/tobtc?currency=${currency}&value=${coins}`);
-    return res.data;
+  getRate(coins, currency = 'USD'): Observable<any> {
+    return this.http.get(`https://blockchain.info/tobtc?currency=${currency}&value=${coins}`);
   }
-  async getMarketPrice(timespan = '3months') {
-    const res = await axios.get(`https://api.blockchain.info/charts/market-price?timespan=${timespan}&format=json&cors=true`);
-    return res.data;
+  getMarketPrice(timespan = '3months'): Observable<any> {
+    return this.http.get(`https://api.blockchain.info/charts/market-price?timespan=${timespan}&format=json&cors=true`);
   }
-  async getConfirmedTransactions(timespan = '3months') {
-    const res = await axios.get(`https://api.blockchain.info/charts/trade-volume?timespan=${timespan}&format=json&cors=true`);
-    return res.data;
+  getConfirmedTransactions(timespan = '3months'): Observable<any> {
+    return this.http.get(`https://api.blockchain.info/charts/trade-volume?timespan=${timespan}&format=json&cors=true`);
   }
 }

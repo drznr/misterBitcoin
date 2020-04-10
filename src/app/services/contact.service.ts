@@ -163,6 +163,14 @@ export class ContactService {
     return contact._id ? this._updateContact(contact) : this._addContact(contact)
   }
 
+  public getNewContact(): Contact {
+    return {
+      name: '',
+      email: '',
+      phone: ''
+    }
+  }
+
   private _updateContact(contact: Contact) {
     //mock the server work
     this._contacts = this._contacts.map(c => contact._id === c._id ? contact : c)
@@ -172,7 +180,7 @@ export class ContactService {
 
   private _addContact(contact: Contact) {
     //mock the server work
-    const newContact = new Contact(contact.name, contact.email, contact.phone);
+    const newContact = new Contact('', contact.name, contact.email, contact.phone);
     newContact.setId();
     this._contacts.push(newContact)
     this._contacts$.next(this._sort(this._contacts))

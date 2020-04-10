@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from 'src/app/models/contact.model';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'contact-list',
@@ -7,6 +8,7 @@ import { Contact } from 'src/app/models/contact.model';
   styleUrls: ['./contact-list.component.less']
 })
 export class ContactListComponent implements OnInit {
+  faPlusCircle = faPlusCircle;
 
   constructor() { }
 

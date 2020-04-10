@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ContactAppComponent } from './pages/contact-app/contact-app.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
@@ -15,6 +16,8 @@ import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 import { ChartComponent } from './cmps/chart/chart.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,16 @@ import { ChartComponent } from './cmps/chart/chart.component';
     ContactPreviewComponent,
     ContactDetailsComponent,
     StatisticsPageComponent,
-    ChartComponent
+    ChartComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
