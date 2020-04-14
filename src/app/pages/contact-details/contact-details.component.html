@@ -13,4 +13,13 @@
             <p>Email: {{ contact.email }}</p>
         </div>
     </div>
+    <main>
+        <transfer-fund 
+        [contact]="contact" 
+        [maxAmout]="loggedUser.coins"
+        (doTransferCoins)="doTransferCoins($event)"
+        ></transfer-fund>
+        
+        <move-list *ngIf="contactMoves.length" [moves]="contactMoves" [title]="contact.name + ' Moves:'"></move-list>
+    </main>
 </section>

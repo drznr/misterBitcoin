@@ -16,8 +16,12 @@ import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 import { ChartComponent } from './cmps/chart/chart.component';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { SignupComponent } from './pages/signup/signup.component';
+import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
+import { MoveListComponent } from './cmps/move-list/move-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     ContactDetailsComponent,
     StatisticsPageComponent,
     ChartComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    SignupComponent,
+    TransferFundComponent,
+    MoveListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     FontAwesomeModule,
     FormsModule,
     GoogleChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

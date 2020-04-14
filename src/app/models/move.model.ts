@@ -1,6 +1,6 @@
-export class User {
+export class Move {
 
-  constructor(public _id?: string, public name: string = '', public coins: number = 100, public moves: object[] = []) {
+  constructor(public _id?: string, public toId: string = '', public to: string = '', public at: number = 0, public amount: number = 0) {
   }
   setId?() {
     this._id = this._makeId();

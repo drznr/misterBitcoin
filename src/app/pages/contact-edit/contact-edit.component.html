@@ -25,7 +25,7 @@
                 <input type="email" placeholder="Email" [(ngModel)]="contact.email" name="email" #email="ngModel" required email />
                 <p class="message" [hidden]="email.valid || email.pristine">Valid Email is required</p>
             </label>
-            <button [disabled]="!contactForm.valid">Save</button>
+            <input type="submit" [disabled]="!contactForm.valid" value="Save" />
         </form>
     </main>
 </section>

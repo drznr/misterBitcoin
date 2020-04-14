@@ -5,6 +5,7 @@ import { BitcoinService } from 'src/app/services/bitcoin.service';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { Move } from 'src/app/models/move.model';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   faBitcoin = faBitcoin;
   faCoins = faCoins;
   subsription: Subscription;
+  movesSubsription: Subscription;
+  latestMoves: Move[];
 
   constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
 
@@ -24,10 +27,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.user = this.userService.getUser;
     this.subsription = this.bitcoinService.getRate(this.user.coins).subscribe((rate: number) => {
       this.btcRate = rate;
-    })
+    });
+    this.movesSubsription = this.userService.getUserMoves().subscribe(moves => {
+      this.latestMoves = JSON.parse(JSON.stringify(moves)); 
+    }) 
   }
   ngOnDestroy() {
     this.subsription.unsubscribe();
+    this.movesSubsription.unsubscribe();
   }
   get userName() {
     const fname = this.user.name.split(' ')[0];

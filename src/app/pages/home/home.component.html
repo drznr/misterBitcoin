@@ -8,4 +8,5 @@
         <fa-icon [icon]="faBitcoin"></fa-icon>
         BTC: {{ btcRate }}
     </p>
+    <move-list *ngIf="latestMoves.length" [title]="'Your last 3 Moves:'" [moves]="latestMoves"></move-list>
 </section>
