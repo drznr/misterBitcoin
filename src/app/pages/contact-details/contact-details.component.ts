@@ -7,6 +7,7 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Move } from 'src/app/models/move.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'contact-details',
@@ -35,7 +36,13 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   doTransferCoins(moveData) {
-    this.userService.addMove(moveData.contact, moveData.amount);
+    if (this.loggedUser.coins - moveData.amount >= 0) this.userService.addMove(moveData.contact, moveData.amount);
+    else Swal.fire({
+      title: 'Oops',
+      text: 'It apears you don\'t have enough coins to make this transfer',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
   }
 
 }
