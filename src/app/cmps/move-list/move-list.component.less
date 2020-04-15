@@ -1,18 +1,42 @@
+@import '../../../less/variables.less';
+
 .move-list {
-    margin: 100px 0;
-    
+    width: 100%;
+    margin-top: 186px;
+    background-color: @clr2;
+        
+    h3 {
+        text-transform: capitalize;
+        text-align: left;
+        padding: 10px 0;
+        background-color: darken(@clr2, 50%);
+
+        span {
+            display: block;
+            font-size: .8em;
+            color: darken(@clr3, 50%);
+        }
+    }
     ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
 
         .move {
-            display: inline-block;
-            background-color: lightgray;
             font-weight: 400;
-            padding: 20px;
-            border-radius: 1rem;
-            margin: 10px;
+            padding: 30px 0;
+            color: @clr3;
+
+            &:not(:last-of-type) {
+                border-bottom: 1px solid @border-fade;
+            }
+            span {
+                color: @clr1;
+                font-weight: 700;
+            }
+            .currency {
+                color: green;
+                font-size: 1.5em;
+            }
         }
     }
 }

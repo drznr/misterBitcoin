@@ -1,7 +1,26 @@
+body {
+    width: 100%;
+    background-image: url('/assets/imgs/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    min-height: 100vh;
+    color: @clr1;
+    font-family: shareTech, monospace;
+}
+
 .container {
     max-width: 900px; 
     margin: 0 auto;
+    padding: 0 20px;
 }
+
 a {
     cursor: pointer;
+}
+
+@media only screen and (min-width: @break-normal) {
+    .container {
+        padding: 0;
+    }
 }

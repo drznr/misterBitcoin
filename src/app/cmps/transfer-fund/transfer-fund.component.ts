@@ -7,7 +7,7 @@ import { Contact } from 'src/app/models/contact.model';
   styleUrls: ['./transfer-fund.component.less']
 })
 export class TransferFundComponent implements OnInit {
-  amout: number = 0;
+  amount: number = 0;
   @Input() contact: Contact;
   @Input() maxAmout: number;
   @Output() doTransferCoins = new EventEmitter<any>();
@@ -19,8 +19,8 @@ export class TransferFundComponent implements OnInit {
 
   onTransferCoins(ev: Event): void {
     ev.preventDefault();
-    this.doTransferCoins.emit({amount: this.amout, contact: this.contact});
-    this.amout = 0;
+    this.doTransferCoins.emit({amount: this.amount, contact: this.contact});
+    this.amount = 0;
   }
 
 }

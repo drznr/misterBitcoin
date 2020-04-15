@@ -15,12 +15,21 @@ export class StatisticsPageComponent implements OnInit, OnDestroy {
     title: '',
     data: [],
     options: {
+      titleTextStyle: {
+        color: '#ff6600',
+        fontSize: 24
+      },
       hAxis: {
-        title: ''
+        title: '',
+        titleTextStyle: {color: '#ff6600'},
+        textStyle:{color: '#ff6600'}
       },
       vAxis: {
-        title: ''
-      }
+        title: '',
+        textStyle:{color: '#ff6600'}
+      },
+      backgroundColor: { fill:'transparent' },
+      colors:["#ff6600", "#ff781f", "#ff8b3d", "#ff9d5c"]
     },
     width: 550,
     height: 400
@@ -31,12 +40,20 @@ export class StatisticsPageComponent implements OnInit, OnDestroy {
     title: '',
     data: [],
     options: {
+      titleTextStyle: {
+        color: '#32CD32',
+        fontSize: 24
+      },
       hAxis: {
-        title: ''
+        title: '',
+        titleTextStyle: {color: '#32CD32'},
+        textStyle:{color: '#32CD32'}
       },
       vAxis: {
-        title: ''
+        title: '',
+        textStyle:{color: '#32CD32'}
       },
+      backgroundColor: { fill:'transparent' },
       colors:["#32CD32", "#00FF00", "#228B22", "#008000"]
     },
     width: 550,

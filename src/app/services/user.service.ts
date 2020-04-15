@@ -9,7 +9,7 @@ import { Move } from '../models/move.model';
 const USER_KEY = 'loggedUser';
 const USER = {
   _id: 'HwmtOSxM9g',
-  name: 'Example User',
+  name: 'Guest',
   coins: 200,
   moves: []
 };

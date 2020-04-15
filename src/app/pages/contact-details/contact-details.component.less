@@ -1,20 +1,43 @@
+@import '../../../less/variables.less';
+@import '../../../less/mixins.less';
+
 .contact-details {
+    margin-top: 40px;
     padding: 20px 0;
 
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
+        a {
+           .link-icon;
+        }
     }
     &-details {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 40px;
 
-        & .card {
-            border: 1px solid black;
-            border-radius: 3px;
-            padding: 10px;
+        img {
+            width: 250px;
+            border-radius: 50%;
+            border: 1px solid @border-fade;
+        }
+        h3 {
+            margin: 20px 0;
+            font-weight: normal;
+            text-transform: capitalize;
+            font-size: 2rem;
+        }
+        p {
+            color: @clr3;
+            font-size: 1rem;
+
+            &:first-of-type {
+                margin-bottom: 10px;
+            }
         }
     }
     main {

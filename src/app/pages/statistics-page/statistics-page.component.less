@@ -1,5 +1,23 @@
+@import '../../../less/variables.less';
+
 .statistics {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    min-height: 400px;
+    
+    .chart {
+        transform: scale(.6);
+    }
+}
+
+@media only screen and (min-width: @break-mobile) {
+    .statistics {
+        min-height: 900px;
+
+        .chart {
+            transform: scale(1);
+        }
+    }
 }

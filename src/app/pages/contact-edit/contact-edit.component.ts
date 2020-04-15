@@ -3,6 +3,7 @@ import { Contact } from 'src/app/models/contact.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ContactService } from 'src/app/services/contact.service';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'contact-edit',
@@ -12,6 +13,7 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 export class ContactEditComponent implements OnInit {
   contact: Contact = this.contactService.getNewContact();
   faArrowAltCircleLeft = faArrowAltCircleLeft;
+  faTrashAlt = faTrashAlt;
 
   constructor(private route: ActivatedRoute, private router: Router, private contactService: ContactService) { }
 

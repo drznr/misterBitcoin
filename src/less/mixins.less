@@ -1,0 +1,48 @@
+.input-dark() {
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: @clr2;
+    border-color: @clr2;
+    color: @clr3;
+    transition: border-color .3s;
+
+    &:focus {
+        border-color: @clr3;
+    }
+}
+.btn() {
+    text-transform: uppercase;
+    border-radius: 3px;
+    background-color: @clr2;
+    border-color: @clr2;
+    font-size: 18px;
+    color: @clr3;
+    padding: 5px 15px;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+    &:not(:disabled):hover {
+        color: @clr1;
+        transform: translateY(-2px);
+    }
+    &:active {
+        transform: translateY(0);
+    }
+}
+.link-icon() {
+    font-size: 24px;
+    color: darken(@clr3, 20%);
+    transition: all .3s linear;
+
+    &:hover {
+        transform: scale(1.5);
+        color: @clr3;
+    }
+}
+.message-red() {
+    text-transform: capitalize;
+    color: red;
+    text-align: center;
+}

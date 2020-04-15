@@ -1,17 +1,17 @@
 <section class="contact-details container">
-    <nav>
-        <a [routerLink]="'/contact'">Back</a>
+    <nav class="container">
+        <a [routerLink]="'/contact'">
+            <fa-icon [icon]="faArrowAltCircleLeft" title="Back"></fa-icon>
+        </a>
         <a [routerLink]="'/contact/edit/' + contact._id">
-            <fa-icon [icon]="faEdit"></fa-icon>
+            <fa-icon [icon]="faEdit" title="Edit"></fa-icon>
         </a>
     </nav>
     <div class="contact-details-details">
-        <div class="card">
             <img [src]="'https://robohash.org/'  + contact._id" />
-            <p>Name: {{ contact.name }}</p>
-            <p>Phone: {{ contact.phone }}</p>
-            <p>Email: {{ contact.email }}</p>
-        </div>
+            <h3>{{ contact.name }}</h3>
+            <p>{{ contact.phone }}</p>
+            <p>{{ contact.email }}</p>
     </div>
     <main>
         <transfer-fund 
@@ -20,6 +20,7 @@
         (doTransferCoins)="doTransferCoins($event)"
         ></transfer-fund>
         
-        <move-list *ngIf="contactMoves.length" [moves]="contactMoves" [title]="contact.name + ' Moves:'"></move-list>
     </main>
 </section>
+
+<move-list *ngIf="contactMoves.length" [moves]="contactMoves" [title]="contact.name"></move-list>

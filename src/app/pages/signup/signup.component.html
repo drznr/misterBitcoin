@@ -1,10 +1,10 @@
 
 <section class="signup">
     <fa-icon [icon]="faBitcoin" class="icon"></fa-icon>
-    <h2>Please enter your name:</h2>
+    <h2>Please enter your name</h2>
     <form (submit)="doSignUp($event)" #signupForm="ngForm">
         <input type="text" name="name" placeholder="Name" [(ngModel)]="cred.name" #name="ngModel" required />
+        <input type="submit" [disabled]="!signupForm.valid" value="Save" />
         <p class="message" [hidden]="name.valid || name.pristine">Name is required</p>
     </form>
-    <input type="submit" [disabled]="!signupForm.valid" value="Save" />
 </section>

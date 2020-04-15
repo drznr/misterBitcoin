@@ -1,3 +1,6 @@
+@import '../../../less/variables.less';
+@import '../../../less/mixins.less';
+
 .signup {
     display: flex;
     flex-direction: column;
@@ -9,16 +12,29 @@
         color: goldenrod;
     }
     h2 {
-        margin-bottom: 10px;
+        text-transform: capitalize;
+        margin-bottom: 50px;
     }
-    .message {
+    form {
         text-align: center;
-        color: red;
-    }
-    input.ng-valid {
-        border-right: 3px solid green;
-    }
-    input.ng-invalid.ng-dirty {
-        border-right: 3px solid red;
+        [name="name"] {
+            .input-dark;
+            flex: 1;
+            display: block;
+            margin-bottom: 40px;
+        }
+        [type="submit"] {
+            .btn;
+            margin-bottom: 20px;
+        }
+        .message {
+            .message-red;
+        }
+        input.ng-valid {
+            border-right: 3px solid green;
+        }
+        input.ng-invalid.ng-dirty {
+            border-right: 3px solid red;
+        }
     }
 }

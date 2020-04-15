@@ -1,11 +1,23 @@
 
 <section class="move-list">
-    <h3>{{ title }}</h3>
-    <ul>
-        <li *ngFor="let move of moves" class="move">
-            <p><strong>To:</strong> {{ move.to }}</p>
-            <p><strong>At:</strong> {{ move.at | date }}</p>
-            <p><strong>Amount:</strong> {{ move.amount }}</p>
-        </li>
-    </ul>
+    <h3>
+        <div class="container">
+            <fa-icon [icon]="faExchangeAlt"></fa-icon>
+            Transfer history
+            <span>
+                {{ title }}
+            </span>
+        </div>
+        </h3>
+        <div class="container">
+            <ul>
+                <li *ngFor="let move of moves" class="move">
+                    <p>
+                        <span class="currency">{{ move.amount | currency }}</span>
+                    </p>
+                    <p><span>To:</span> {{ move.to }}</p>
+                    <p><span>At:</span> {{ move.at | date:'medium' }}</p>
+                </li>
+            </ul>
+        </div>
 </section>

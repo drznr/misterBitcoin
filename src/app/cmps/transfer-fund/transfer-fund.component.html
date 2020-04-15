@@ -2,10 +2,19 @@
 
 
 <section class="transfer-fund">
-    <h3>Transfer coins to {{ contact.name }}</h3>
     <form (submit)="onTransferCoins($event)" #coinsForm="ngForm">
-        <input type="number" name="amount" [(ngModel)]="amout" [min]="0" [max]="maxAmout" [ngClass]="{'is-invalid':amount.invalid}" #amount="ngModel" required />
-        <p class="message" [hidden]="amount.valid || amount.pristine">Amount is required</p>
-        <input type="submit" value="Transfer" [disabled]="!coinsForm.valid" />
+        <input 
+            type="number" 
+            name="amount" 
+            [(ngModel)]="amount" 
+            [min]="0" 
+            [max]="maxAmout" 
+            [ngClass]="{'is-invalid':amountInp.invalid}" 
+            #amountInp="ngModel" 
+            pattern="^[1-9][0-9]*$"
+            required 
+            />
+        <input type="submit" value="Transfer" [disabled]="!coinsForm.valid || amount < 1" class="btn" />
     </form>
+    <p class="message" [hidden]="amountInp.valid || amountInp.pristine">Amount is required</p>
 </section>

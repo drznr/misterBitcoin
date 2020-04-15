@@ -1,3 +1,5 @@
+@import '../less/variables.less';
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -6,12 +8,12 @@ nav {
     font-size: 2rem;
     
     a {
-        color: black;
+        color: inherit;
         transition: all .3s;
 
         &:hover {
             transform: scale(1.1);
-            color: lighten(black, 30%);
+            color: lighten(@clr1, 20%);
         }
     }
 }

@@ -3,6 +3,7 @@ import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from 'src/app/models/contact.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Move } from 'src/app/models/move.model';
@@ -17,6 +18,7 @@ export class ContactDetailsComponent implements OnInit {
   contactMoves: Move[];
   loggedUser: User;
   faEdit = faEdit;
+  faArrowAltCircleLeft = faArrowAltCircleLeft;
 
   constructor(private contactService: ContactService, private route: ActivatedRoute, private userService: UserService) { }
 

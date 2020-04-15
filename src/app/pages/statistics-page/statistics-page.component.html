@@ -1,6 +1,16 @@
 
 
 <section class="statistics container">
-    <chart [chart]="marketPriceData"></chart>
-    <chart [chart]="confirmedTransactionsData"></chart>
+    <chart 
+        *ngIf="marketPriceData.data.length" 
+        [chart]="marketPriceData"
+        class="chart"
+        >
+    </chart>
+    <chart 
+    *ngIf="confirmedTransactionsData.data.length" 
+        [chart]="confirmedTransactionsData"
+        class="chart"
+        >
+    </chart>
 </section>

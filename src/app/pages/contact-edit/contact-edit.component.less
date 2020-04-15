@@ -1,27 +1,42 @@
+@import '../../../less/variables.less';
+@import '../../../less/mixins.less';
+
 .contact-edit {
-    
+    margin-top: 40px;
+    padding: 20px 0;
+
     header {
-        min-height: 300px;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 50px;
-        
-        img {
-            border-radius: 50%;
+        align-items: center;
+
+        button {
+            .link-icon;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
         }
-    }
-    main {
-        background-color: lightcyan;
+        a {
+            .link-icon;
+        }
     }
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 40px 0;
 
-        label {
-            margin-bottom: 40px;
+        img {
+            width: 250px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 1px solid @border-fade;
+        }
+        [type="text"], [type="email"], [type="tel"] {
+            .input-dark;
+            margin-bottom: 5px;
+        }
+        [type="submit"] {
+            .btn;
         }
         .ng-valid {
             border-right: 3px solid green;
@@ -29,9 +44,9 @@
         .ng-invalid.ng-dirty {
             border-right: 3px solid red;
         }
-        .message {
-            color: red;
-            margin-top: 10px;
-        }
+    }
+    .message {
+        .message-red;
+        margin-top: 10px;
     }
 }

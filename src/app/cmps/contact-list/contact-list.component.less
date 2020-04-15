@@ -1,3 +1,5 @@
+@import '../../../less/variables.less';
+
 .contact-list {
     position: relative;
 
@@ -6,7 +8,22 @@
         bottom: 0;
         left: 100%;
         font-size: 48px;
-        color: blue;
+        color: @clr3;
         cursor: pointer;
+        border-radius: 50%;
+        padding: 3px 10px;
+        background-color: @clr1;
+        transition: all .3s linear;
+
+        &:hover {
+            border-radius: 5px;
+            bottom: 3px;
+            background-color: lighten(@clr1, 15%);
+        }
+        &:active {
+            border-radius: 50%;
+            bottom: 0;
+            background-color: @clr1;
+        }
     }
 }

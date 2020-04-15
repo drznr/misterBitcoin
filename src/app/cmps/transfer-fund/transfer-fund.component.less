@@ -1,13 +1,43 @@
+@import '../../../less/variables.less';
+@import '../../../less/mixins.less';
+
 .transfer-fund {
-    display: inline-block;
-    background-color: lightblue;
-    padding: 50px 0;
-    min-width: 500px;
+    display: inline-flex;
+    flex-direction: column;
     margin: 20px 0;
     text-align: center;
 
+    form {
+        display: flex;
+
+        [type="number"] {
+            .input-dark;
+            flex: 1;
+            border-radius: 5px 0 0 5px;
+
+            &::-webkit-inner-spin-button {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        [type="submit"] {
+            .btn;
+            border-radius: 0 5px 5px 0;
+            border-left: 1px solid @clr3;
+
+            &:not(:disabled):hover, &:active {
+                transform: none;
+            }
+        }
+        input.ng-valid {
+            border-left: 3px solid green;
+        }
+        input.ng-invalid.ng-dirty {
+            border-left: 3px solid red;
+        }
+    }
     .message {
         margin: 20px 0;
-        color: red;
+        .message-red;
     }
 }

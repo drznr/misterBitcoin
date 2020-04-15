@@ -2,11 +2,16 @@
     <h1>Hello {{ userName }}</h1>
     <p>
         <fa-icon [icon]="faCoins"></fa-icon>
-        Coins: {{ user.coins }}$
+        Coins: <span>{{ user.coins | currency }}</span>
     </p>
     <p>
         <fa-icon [icon]="faBitcoin"></fa-icon>
-        BTC: {{ btcRate }}
+        BTC: <span>{{ btcRate }}</span>
     </p>
-    <move-list *ngIf="latestMoves.length" [title]="'Your last 3 Moves:'" [moves]="latestMoves"></move-list>
 </section>
+<move-list 
+    *ngIf="latestMoves.length" 
+    [title]="'Your last ' + latestMoves.length + ' Moves:'" 
+    [moves]="latestMoves"
+    >
+</move-list>
