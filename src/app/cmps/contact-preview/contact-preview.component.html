@@ -3,9 +3,9 @@
     <img [src]="'https://robohash.org/' + contact._id" />
     <span>
         {{ contact.name }}
-        <a [routerLink]="'/contact/' + contact._id">
-            <fa-icon [icon]="faInfoCircle" class="icon" title="Details..."></fa-icon>
-        </a>
         <p class="phone">{{ contact.phone }}</p>
     </span>
+    <a [routerLink]="'/contact/' + contact._id">
+        <fa-icon [icon]="faInfoCircle" class="icon" title="Details..."></fa-icon>
+    </a>
 </div>
