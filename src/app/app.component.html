@@ -1,16 +1,16 @@
 
 <nav>
-    <a [routerLink]="'/'">
-        <fa-icon [icon]="faHome"></fa-icon>
+    <a [routerLink]="'/'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">
+        <fa-icon [icon]="faHome" title="Home"></fa-icon>
     </a>
-    <a [routerLink]="'/contact'">
-        <fa-icon [icon]="faAddressBook"></fa-icon>
+    <a [routerLink]="'/contact'" [routerLinkActive]="'active'">
+        <fa-icon [icon]="faAddressBook" title="Contacts"></fa-icon>
     </a>
-    <a [routerLink]="'/statistics'">
-        <fa-icon [icon]="faChartLine"></fa-icon>
+    <a [routerLink]="'/statistics'" [routerLinkActive]="'active'">
+        <fa-icon [icon]="faChartLine" title="Statistics"></fa-icon>
     </a>
-    <a [routerLink]="'/signup'">
-        <fa-icon [icon]="faUserPlus"></fa-icon>
+    <a [routerLink]="'/signup'" [routerLinkActive]="'active'">
+        <fa-icon [icon]="faUserPlus" title="Sign-Up"></fa-icon>
     </a>
 </nav>
 <router-outlet></router-outlet>

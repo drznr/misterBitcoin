@@ -1,6 +1,7 @@
 
 
 <section class="statistics container">
+    <img src="assets/imgs/loader.gif" *ngIf="!marketPriceData.data.length" />
     <chart 
         *ngIf="marketPriceData.data.length" 
         [chart]="marketPriceData"
