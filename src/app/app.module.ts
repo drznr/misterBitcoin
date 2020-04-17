@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { SignupComponent } from './pages/signup/signup.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MoveListComponent } from './cmps/move-list/move-list.component';
     ContactEditComponent,
     SignupComponent,
     TransferFundComponent,
-    MoveListComponent
+    MoveListComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
